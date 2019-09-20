@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+  .button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.button:hover {opacity: 1}
+  </style>
+
+<body>
+
+<div class="container mt-3">
+  <h2>Custom File</h2>
+  <p>To create a custom file upload, wrap a container element with a class of .custom-file around the input with type="file". Then add the .custom-control-input to it:</p>
+  <form method="post" action="/elfanalysis" enctype="multipart/form-data">
+    <dl>
+    <div class="upload-btn-wrapper">
+      <button class="btn">Upload ELF file</button>
+      <input type="file" name="file" autocomplete="off" required/>
+    </div>
+    </dl>
+    <p>
+      <div class="upload-btn-wrapper">
+      <input class="button" type="submit" value="Upload">
+    </div>
+  </p>
+</form>
+</div>
+
+<script>
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
+</div>
+<div class="container mt-3">
+  <h2>Syscall analyser</h2>
+  <p>{{ message.decode('utf-8') }}</p>
+</div>
+
+
+
+</body>
+</html>
